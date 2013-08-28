@@ -7,3 +7,10 @@
 th {
   text-align: left;
 }
+
+.errors {
+  display: block;
+  text-align: center;
+  color:red;
+  font-size: 60px;
+}

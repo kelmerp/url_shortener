@@ -2,7 +2,15 @@
  <h1> Give us a fucking URL (lazy bastard) </h1>
 
  <form action="/url" method="POST">
-  <label>type your long-ass url here: <input type="text" placeholder="http://www.yourwebsite.com/somethingorother" style="width:500px; height:20px;"></label>
+  <label>type your long-ass url here: <input type="text" name = "url_name" placeholder="http://www.yourwebsite.com/somethingorother" style="width:500px; height:20px;"></label>
   <label> <input type = "submit">
  </form>
+
+ <% if @url %>
+  <% if @url.valid? %>
+    <a href="<%= @url.long_url %>"><%= @url.short_url %></a>
+  <% else %>
+    <span ="errors"><%= @url.errors.messages[:long_url].join(" ") %></span>
+  <% end %>
+<% end %>
 </div>
